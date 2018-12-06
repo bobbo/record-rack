@@ -1,8 +1,9 @@
 import { app, BrowserWindow } from 'electron';
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 import { enableLiveReload } from 'electron-compile';
+import { configure } from 'mobx';
 
-import Databse from './database';
+configure({ enforceActions: 'always' });
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -62,16 +63,3 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 
-const initDb = async () => {
-  const db = new Databse();
-  await db.connect();
-
-  let records = await db.getAllRecords();
-  if (records.length === 0 && isDevMode) {
-    await db.ensureDebugData();
-    records = await db.getAllRecords();
-  }
-
-  console.log(records);
-};
-initDb();

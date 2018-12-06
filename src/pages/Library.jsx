@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+
+import LibraryView from '../components/LibraryView';
+import appStore from '../store';
 
 const Library = () => (
   <div>
-    <h2>Library!</h2>
-    <div><Link to="/details">Go to details</Link></div>
+    <h1>Record Rack</h1>
+    <LibraryView store={appStore} />
   </div>
 );
 

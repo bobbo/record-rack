@@ -32,7 +32,7 @@ class Database {
       creates.push(this.Record.create(record));
     }
 
-    Promise.all(creates);
+    await Promise.all(creates);
   }
 
   async getAllRecords() {
