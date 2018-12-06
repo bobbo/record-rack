@@ -18,7 +18,7 @@ export default class App extends React.Component {
       <HashRouter>
         <div>
           <Route path="/" exact component={Library} />
-          <Route path="/details" component={RecordDetails} />
+          <Route path="/details/:id" component={RecordDetails} />
         </div>
       </HashRouter>
     );

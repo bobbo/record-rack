@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const RecordGalleryItem = ({ record }) => (
   <div key={record.id}>
-    <Link to={`/details?record=${record.id}`}>{record.artist} - {record.name}</Link>
+    <Link to={`/details/${record.id}`}>{record.artist} - {record.name}</Link>
   </div>
 );
 

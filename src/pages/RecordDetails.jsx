@@ -1,5 +1,15 @@
 import React from 'react';
+import PropTypes from 'react-router-prop-types';
 
-const RecordDetails = () => (<div><h2>Record Details!</h2></div>);
+import RecordDetails from '../components/RecordDetails.jsx';
+import appStore from '../store';
 
-export default RecordDetails;
+const RecordDetailsPage = props => (
+  <RecordDetails recordId={props.match.params.id} store={appStore} />
+);
+
+RecordDetailsPage.propTypes = {
+  match: PropTypes.match.isRequired,
+};
+
+export default RecordDetailsPage;

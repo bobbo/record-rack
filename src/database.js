@@ -39,6 +39,10 @@ class Database {
     return this.Record.findAll();
   }
 
+  async getRecord(recordId) {
+    return this.Record.findById(recordId);
+  }
+
 }
 
 export default Database;
