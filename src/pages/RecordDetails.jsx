@@ -2,14 +2,19 @@ import React from 'react';
 import PropTypes from 'react-router-prop-types';
 
 import RecordDetails from '../components/RecordDetails.jsx';
+import TopBar from '../components/TopBar.jsx';
 import appStore from '../store';
 
 const RecordDetailsPage = props => (
-  <RecordDetails recordId={props.match.params.id} store={appStore} />
+  <div>
+    <TopBar history={props.history} />
+    <RecordDetails recordId={props.match.params.id} store={appStore} />
+  </div>
 );
 
 RecordDetailsPage.propTypes = {
   match: PropTypes.match.isRequired,
+  history: PropTypes.history.isRequired,
 };
 
 export default RecordDetailsPage;

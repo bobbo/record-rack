@@ -1,11 +1,12 @@
 import React from 'react';
 
 import RecordGallery from '../components/RecordGallery';
+import TopBar from '../components/TopBar';
 import appStore from '../store';
 
 const Library = () => (
   <div>
-    <h1>Record Rack</h1>
+    <TopBar />
     <RecordGallery store={appStore} />
   </div>
 );
