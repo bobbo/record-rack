@@ -21,7 +21,6 @@ class Store {
 
   async loadRecords() {
     this.records = await this.db.getAllRecords();
-    console.log(this.records);
   }
 
 }

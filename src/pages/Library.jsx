@@ -1,13 +1,12 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 
-import LibraryView from '../components/LibraryView';
+import RecordGallery from '../components/RecordGallery';
 import appStore from '../store';
 
 const Library = () => (
   <div>
     <h1>Record Rack</h1>
-    <LibraryView store={appStore} />
+    <RecordGallery store={appStore} />
   </div>
 );
 
