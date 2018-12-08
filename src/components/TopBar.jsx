@@ -3,10 +3,7 @@ import PropTypes from 'react-router-prop-types';
 
 import NavBar from './NavBar.jsx';
 
-const TopBar = (props) => {
-  const nav = props.history !== undefined ? <NavBar history={props.history} /> : '';
-  return <div><span>RecordRack</span>{nav}</div>;
-};
+const TopBar = props => (<div><span>RecordRack</span><NavBar history={props.history} /></div>);
 
 TopBar.propTypes = {
   history: PropTypes.history,
