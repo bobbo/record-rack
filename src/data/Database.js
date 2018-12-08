@@ -42,7 +42,10 @@ class Database {
   }
 
   async getRecord(recordId) {
-    return this.Record.findByPk(recordId);
+    const record = await this.Record.findByPk(recordId);
+    const trackList = record.trackList.split('\n');
+    return new Record(record.id, record.title, record.artist, record.year, record.albumCover,
+       trackList);
   }
 
 }

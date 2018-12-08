@@ -24,9 +24,10 @@ export default class DiscogsService {
 
   async getMasterRelease(id) {
     const master = await this.client.getMaster(id);
+    const trackList = master.tracklist.map(track => `${track.position} - ${track.title}`);
 
     return new Record(master.id, master.title, master.artists[0].name,
-        master.year, master.images[0].uri);
+        master.year, master.images[0].uri, trackList.join('\n'));
   }
 
 }

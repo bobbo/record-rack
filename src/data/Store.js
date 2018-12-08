@@ -35,9 +35,13 @@ class Store {
   }
 
   async saveRecord(discogsId) {
-    const master = await this.discogs.getMasterRelease(discogsId);
-    await this.db.saveRecord(master);
-    this.loadRecords();
+    try {
+      const master = await this.discogs.getMasterRelease(discogsId);
+      await this.db.saveRecord(master);
+      this.loadRecords();
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   async searchDiscogsRecords(query) {
