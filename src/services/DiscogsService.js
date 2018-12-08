@@ -13,7 +13,7 @@ export default class DiscogsService {
   }
 
   async searchReleases(query, limit = 5) {
-    const response = await this.client.searchRelease(query);
+    const response = await this.client.searchDatabase({ query, type: 'master' });
     return response.results.slice(0, limit);
   }
 

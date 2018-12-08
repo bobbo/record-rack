@@ -6,6 +6,11 @@ import RecordGalleryItem from './RecordGalleryItem';
 
 class RecordSelector extends Component {
 
+  constructor(props) {
+    super(props);
+    this.onType = this.onType.bind(this);
+  }
+
   componentWillMount() {
     this.setState({ value: 'Search ...' });
   }
@@ -17,16 +22,17 @@ class RecordSelector extends Component {
   }
 
   render() {
-    const onChange = this.onType.bind(this);
     console.log(this.props.store.searchResults);
-    const results = this.props.store.searchResults.map(record => <RecordGalleryItem key={record.id} record={record} />);
+    const results = this.props.store.searchResults.map(record => (
+      <RecordGalleryItem key={record.id} record={record} />
+    ));
 
     return (<div>
       <DebounceInput
         minLength={2}
         debounceTimeout={300}
         value={this.state.value}
-        onChange={onChange}
+        onChange={this.onType}
       />
       <div>{results}</div>
     </div>);
