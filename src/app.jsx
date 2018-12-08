@@ -3,7 +3,7 @@ import { HashRouter, Route } from 'react-router-dom';
 
 import Library from './pages/Library';
 import RecordDetails from './pages/RecordDetails';
-import appStore from './store';
+import appStore from './data/Store';
 
 export default class App extends React.Component {
 

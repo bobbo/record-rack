@@ -2,7 +2,7 @@ import React from 'react';
 
 import RecordGallery from '../components/RecordGallery';
 import TopBar from '../components/TopBar';
-import appStore from '../store';
+import appStore from '../data/Store';
 
 const Library = () => (
   <div>

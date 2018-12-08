@@ -1,6 +1,6 @@
 import { decorate, observable, action } from 'mobx';
 
-import Database from './database';
+import Database from './Database';
 
 class Store {
 

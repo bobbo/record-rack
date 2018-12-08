@@ -3,7 +3,7 @@ import PropTypes from 'react-router-prop-types';
 
 import RecordDetails from '../components/RecordDetails.jsx';
 import TopBar from '../components/TopBar.jsx';
-import appStore from '../store';
+import appStore from '../data/Store';
 
 const RecordDetailsPage = props => (
   <div>
