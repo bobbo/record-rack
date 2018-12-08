@@ -33,6 +33,13 @@ class Store {
     this.selectedRecord = await this.db.getRecord(id);
   }
 
+  async saveRecord(discogsId) {
+    const master = await this.discogs.getMasterRelease(discogsId);
+    console.log(master);
+    await this.db.saveRecord(master);
+    this.loadRecords();
+  }
+
   async searchDiscogsRecords(query) {
     this.searchResults = await this.discogs.searchReleases(query);
   }
@@ -46,6 +53,7 @@ decorate(Store, {
 
   loadRecords: action,
   selectRecord: action,
+  saveRecord: action,
 
   searchDiscogsRecords: action,
 });

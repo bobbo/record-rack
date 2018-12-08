@@ -17,4 +17,8 @@ export default class DiscogsService {
     return response.results.slice(0, limit);
   }
 
+  async getMasterRelease(id) {
+    return this.client.getMaster(id);
+  }
+
 }

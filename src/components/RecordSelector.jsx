@@ -22,9 +22,8 @@ class RecordSelector extends Component {
   }
 
   render() {
-    console.log(this.props.store.searchResults);
     const results = this.props.store.searchResults.map(record => (
-      <RecordSelectorItem key={record.id} record={record} />
+      <RecordSelectorItem key={record.id} record={record} store={this.props.store} />
     ));
 
     return (<div>

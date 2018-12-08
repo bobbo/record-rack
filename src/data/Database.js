@@ -26,10 +26,14 @@ class Database {
 
     const creates = [];
     for (const record of debugRecords) {
-      creates.push(this.Record.create(record));
+      creates.push(this.saveRecord());
     }
 
     await Promise.all(creates);
+  }
+
+  async saveRecord(record) {
+    return this.Record.create(record);
   }
 
   async getAllRecords() {

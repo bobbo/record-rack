@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { observer, PropTypes } from 'mobx-react';
-import RecordGalleryItem from './RecordGalleryItem';
 import { Link } from 'react-router-dom';
+
+import RecordGalleryItem from './RecordGalleryItem';
 
 class RecordGallery extends Component {
 
