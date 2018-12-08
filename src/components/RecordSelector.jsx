@@ -29,7 +29,7 @@ class RecordSelector extends Component {
     return (<div>
       <DebounceInput
         minLength={2}
-        debounceTimeout={300}
+        debounceTimeout={250}
         value={this.state.value}
         onChange={this.onType}
       />

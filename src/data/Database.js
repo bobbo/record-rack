@@ -1,17 +1,17 @@
 import { Sequelize } from 'sequelize';
 
+import Record from './RecordModel';
+
 class Database {
 
   async connect() {
     this.db = new Sequelize('sqlite:./records.rack');
-    this.Record = this.db.define('record', {
-      id: { type: Sequelize.DECIMAL, primaryKey: true },
-      title: Sequelize.STRING,
-    });
+    this.Record = this.db.define('record', Record.GetDatabaseDefinition(Sequelize));
 
     return this.Record.sync();
   }
 
+  /*
   async ensureDebugData() {
     const debugRecords = [
       {
@@ -26,11 +26,12 @@ class Database {
 
     const creates = [];
     for (const record of debugRecords) {
-      creates.push(this.saveRecord());
+      creates.push(this.saveRecord(record));
     }
 
     await Promise.all(creates);
   }
+  */
 
   async saveRecord(record) {
     return this.Record.create(record);

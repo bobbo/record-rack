@@ -1,4 +1,5 @@
 import Discojs from 'discojs';
+import Record from '../data/RecordModel';
 
 const CONSUMER_KEY = 'BCujhijEyFQfremugXmU';
 const CONSUMER_SECRET = 'ySCqXcIsYYbcvQHUtSdwmtnvzrGMQtHZ';
@@ -14,11 +15,18 @@ export default class DiscogsService {
 
   async searchReleases(query, limit = 5) {
     const response = await this.client.searchDatabase({ query, type: 'master' });
-    return response.results.slice(0, limit);
+
+    return response.results.slice(0, limit).map((record) => {
+      const [artist, ...title] = record.title.split(' - ');
+      return new Record(record.id, title.join(''), artist, record.year, record.cover_image);
+    });
   }
 
   async getMasterRelease(id) {
-    return this.client.getMaster(id);
+    const master = await this.client.getMaster(id);
+
+    return new Record(master.id, master.title, master.artists[0].name,
+        master.year, master.images[0].uri);
   }
 
 }
