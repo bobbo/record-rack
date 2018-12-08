@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { observer, PropTypes } from 'mobx-react';
 import DebounceInput from 'react-debounce-input';
 
-import RecordGalleryItem from './RecordGalleryItem';
+import RecordSelectorItem from './RecordSelectorItem';
 
 class RecordSelector extends Component {
 
@@ -24,7 +24,7 @@ class RecordSelector extends Component {
   render() {
     console.log(this.props.store.searchResults);
     const results = this.props.store.searchResults.map(record => (
-      <RecordGalleryItem key={record.id} record={record} />
+      <RecordSelectorItem key={record.id} record={record} />
     ));
 
     return (<div>

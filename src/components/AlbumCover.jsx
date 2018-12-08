@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 const AlbumCover = ({ url }) => {
   const style = {
-    width: '20%',
-    height: '20%',
+    width: '75px',
   };
 
   // TODO: alt etc.

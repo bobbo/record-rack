@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, PropTypes } from 'mobx-react';
 import RecordGalleryItem from './RecordGalleryItem';
+import { Link } from 'react-router-dom';
 
 class RecordGallery extends Component {
 
@@ -14,7 +15,7 @@ class RecordGallery extends Component {
       <div>
         {
           this.props.store.records.map(record =>
-            <RecordGalleryItem key={record.id} record={record} />)
+            <Link key={record.id} to={`/details/${record.id}`}><RecordGalleryItem key={record.id} record={record} /></Link>)
         }
       </div>
     );

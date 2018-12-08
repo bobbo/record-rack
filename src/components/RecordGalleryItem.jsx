@@ -10,7 +10,7 @@ const RecordGalleryItem = ({ record }) => {
   return (
     <div key={record.id}>
       {cover}
-      <Link key={record.id} to={`/details/${record.id}`}>{record.title}</Link>
+      {record.title}
     </div>
   );
 };
