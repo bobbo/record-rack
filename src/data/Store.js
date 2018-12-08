@@ -35,7 +35,6 @@ class Store {
 
   async saveRecord(discogsId) {
     const master = await this.discogs.getMasterRelease(discogsId);
-    console.log(master);
     await this.db.saveRecord(master);
     this.loadRecords();
   }

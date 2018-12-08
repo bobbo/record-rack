@@ -10,13 +10,22 @@ export default class RecordSelectorItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { working: false };
+    this.state = {
+      working: false,
+      buttonText: 'Add to Library',
+      buttonEnabled: true,
+    };
     this.onClick = this.onClick.bind(this);
   }
 
   async onClick() {
+    if (!this.state.buttonEnabled) {
+      return;
+    }
+
     this.setState({ working: true });
     await this.props.store.saveRecord(this.props.record.id);
+    this.setState({ working: false, buttonText: 'Added', buttonEnabled: false });
   }
 
   render() {
@@ -26,14 +35,14 @@ export default class RecordSelectorItem extends React.Component {
         <LaddaButton
           loading={this.state.working}
           onClick={this.onClick}
-          data-color="#eee"
+          data-color="#0f0"
           data-size={XL}
           data-style={SLIDE_UP}
           data-spinner-size={30}
           data-spinner-color="#ddd"
           data-spinner-lines={12}
         >
-          Add
+          {this.state.buttonText}
         </LaddaButton>
       </div>
     );
