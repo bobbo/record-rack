@@ -7,9 +7,9 @@ const RecordGalleryItem = ({ record }) => {
   const cover = record.albumCover === undefined ? '' : <AlbumCover url={record.albumCover} />;
 
   return (
-    <div key={record.id}>
-      {cover}
-      {record.title} - {record.artist}
+    <div className="listing" key={record.id}>
+      <span className="listingCover">{cover}</span>
+      <span className="listingTitle">{record.title} - {record.artist}</span>
     </div>
   );
 };

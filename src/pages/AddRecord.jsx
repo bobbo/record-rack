@@ -8,8 +8,10 @@ import appStore from '../data/Store';
 const AddRecord = ({ history }) => (
   <div>
     <TopBar history={history} />
-    <span>Add Record Page ...</span>
-    <RecordSelector store={appStore} />
+    <div className="pageContent">
+      <span>Add Record Page ...</span>
+      <RecordSelector store={appStore} />
+    </div>
   </div>
 );
 

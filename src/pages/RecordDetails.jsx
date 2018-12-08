@@ -8,7 +8,9 @@ import appStore from '../data/Store';
 const RecordDetailsPage = props => (
   <div>
     <TopBar history={props.history} />
-    <RecordDetails recordId={props.match.params.id} store={appStore} />
+    <div className="pageContent">
+      <RecordDetails recordId={props.match.params.id} store={appStore} />
+    </div>
   </div>
 );
 

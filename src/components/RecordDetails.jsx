@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as MobxReact from 'mobx-react';
+
 import AlbumCover, { CoverSizeLarge } from './AlbumCover';
 
 class RecordDetails extends Component {

@@ -4,12 +4,14 @@ import PropTypes from 'react-router-prop-types';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = ({ history }) => {
-  const back = history !== undefined ? <a role="link" tabIndex={0} onClick={history.goBack}>Back</a> : '';
+  const back = history !== undefined
+    ? <a className="menuItem" role="link" tabIndex={0} onClick={history.goBack}>« Back</a>
+    : '';
 
   return (
     <span id="navBar">
       {back}
-      <NavLink to={'/add'}>Add Record</NavLink>
+      <span className="menuItem"><NavLink to={'/add'}>+ Add Record</NavLink></span>
     </span>
   );
 };

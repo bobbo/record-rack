@@ -7,7 +7,9 @@ import appStore from '../data/Store';
 const Library = () => (
   <div>
     <TopBar />
-    <RecordGallery store={appStore} />
+    <div className="pageContent">
+      <RecordGallery store={appStore} />
+    </div>
   </div>
 );
 
