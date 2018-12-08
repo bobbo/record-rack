@@ -5,10 +5,16 @@ import RecordGalleryItem from './RecordGalleryItem';
 class RecordGallery extends Component {
 
   render() {
+    const records = this.props.store.records;
+    if (records.length === 0) {
+      return <div>No records in your collection ...</div>;
+    }
+
     return (
       <div>
         {
-          this.props.store.records.map(record => <RecordGalleryItem record={record} />)
+          this.props.store.records.map(record =>
+            <RecordGalleryItem key={record.id} record={record} />)
         }
       </div>
     );

@@ -40,7 +40,7 @@ class Database {
   }
 
   async getRecord(recordId) {
-    return this.Record.findById(recordId);
+    return this.Record.findByPk(recordId);
   }
 
 }
