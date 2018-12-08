@@ -16,7 +16,7 @@ class RecordDetails extends Component {
     const record = this.props.store.selectedRecord;
 
     return (<div>
-      <h2>{record.name} - {record.artist}</h2>
+      <h2>{record.title}</h2>
     </div>);
   }
 

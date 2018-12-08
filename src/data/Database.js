@@ -6,8 +6,7 @@ class Database {
     this.db = new Sequelize('sqlite:./records.rack');
     this.Record = this.db.define('record', {
       id: { type: Sequelize.DECIMAL, primaryKey: true },
-      name: Sequelize.STRING,
-      artist: Sequelize.STRING,
+      title: Sequelize.STRING,
     });
 
     return this.Record.sync();
@@ -17,13 +16,11 @@ class Database {
     const debugRecords = [
       {
         id: 1,
-        artist: 'Los Campesinos!',
-        name: 'Hello Sadness',
+        title: 'Los Campesinos! - Hello Sadness',
       },
       {
         id: 2,
-        artist: 'The Antlers',
-        name: 'Hospice',
+        title: 'The Antlers - Hospice',
       },
     ];
 

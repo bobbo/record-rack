@@ -4,15 +4,14 @@ import { Link } from 'react-router-dom';
 
 const RecordGalleryItem = ({ record }) => (
   <div key={record.id}>
-    <Link to={`/details/${record.id}`}>{record.artist} - {record.name}</Link>
+    <Link key={record.id} to={`/details/${record.id}`}>{record.title}</Link>
   </div>
 );
 
 RecordGalleryItem.PropTypes = {
   record: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    artist: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
 };
 

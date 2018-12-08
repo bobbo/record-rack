@@ -1,12 +1,15 @@
 import { decorate, observable, action } from 'mobx';
 
 import Database from './Database';
+import DiscogsService from '../services/DiscogsService';
 
 class Store {
 
   constructor() {
     this.records = [];
     this.selectedRecord = undefined;
+
+    this.searchResults = [];
   }
 
   async init() {
@@ -18,6 +21,8 @@ class Store {
       await this.db.ensureDebugData();
       await this.loadRecords();
     }
+
+    this.discogs = new DiscogsService();
   }
 
   async loadRecords() {
@@ -28,14 +33,21 @@ class Store {
     this.selectedRecord = await this.db.getRecord(id);
   }
 
+  async searchDiscogsRecords(query) {
+    this.searchResults = await this.discogs.searchReleases(query);
+  }
+
 }
 
 decorate(Store, {
   records: observable,
   selectedRecord: observable,
+  searchResults: observable,
 
   loadRecords: action,
   selectRecord: action,
+
+  searchDiscogsRecords: action,
 });
 
 const appStore = new Store();
