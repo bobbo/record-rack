@@ -18,9 +18,13 @@ class RecordDetails extends Component {
     const record = this.props.store.selectedRecord;
 
     return (<div>
-      <h2>{record.title} - {record.artist}</h2>
-      <div><AlbumCover url={record.albumCover} size={CoverSizeLarge} /></div>
-      <div>Released {record.year}</div>
+      <div className="detailsCover">
+        <AlbumCover url={record.albumCover} size={CoverSizeLarge} />
+      </div>
+      <div className="detailsRight">
+        <div className="detailsHeader"><h2>{record.title} - {record.artist}</h2></div>
+        <div className="detailsSub">Released {record.year}</div>
+      </div>
       <div>
         <ul>
           {

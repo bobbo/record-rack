@@ -5,19 +5,15 @@ const CoverSizeSmall = Symbol('cover-size-small');
 const CoverSizeLarge = Symbol('cover-size-large');
 
 const CoverSizeStyles = {
-  [CoverSizeSmall]: {
-    width: '75px',
-  },
-  [CoverSizeLarge]: {
-    width: '33%',
-  },
+  [CoverSizeSmall]: 'coverSmall',
+  [CoverSizeLarge]: 'coverLarge',
 };
 
 const AlbumCover = ({ url, size }) => {
   const style = CoverSizeStyles[size];
 
   // TODO: alt etc.
-  return <img style={style} src={url} />;
+  return <img className={style} src={url} />;
 };
 
 AlbumCover.propTypes = {

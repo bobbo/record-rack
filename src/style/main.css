@@ -72,3 +72,32 @@ a:active, a:focus {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.coverSmall {
+  width: 75px;
+}
+
+.coverLarge {
+  width: 150px;
+}
+
+.detailsCover {
+  display: inline-block;
+}
+
+.detailsRight {
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: top;
+  margin-left: 0.5rem;
+}
+
+.detailsHeader {
+  line-height: 0.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detailsSub {
+  font-size: 0.6rem;
+}
