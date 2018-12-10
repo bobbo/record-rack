@@ -9,7 +9,7 @@ const RecordGalleryItem = ({ record }) => {
   return (
     <div className="listing" key={record.id}>
       <span className="listingCover">{cover}</span>
-      <span className="listingTitle">{record.title} - {record.artist}</span>
+      <span className="listingTitle">{record.artist} - {record.title}</span>
     </div>
   );
 };

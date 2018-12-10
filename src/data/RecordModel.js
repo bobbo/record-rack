@@ -9,6 +9,16 @@ export default class Record {
     this.trackList = trackList;
   }
 
+  static Sort(a, b) {
+    return a.artist.localeCompare(b.artist) || a.title.localeCompare(b.title);
+  }
+
+  static FromDbObj(record) {
+    const trackList = record.trackList.split('\n');
+    return new Record(record.id, record.title, record.artist, record.year, record.albumCover,
+       trackList);
+  }
+
   static GetDatabaseDefinition(Types) {
     return {
       id: { type: Types.DECIMAL, primaryKey: true },

@@ -14,16 +14,10 @@ class Store {
 
   async init() {
     this.discogs = new DiscogsService();
+
     this.db = new Database();
     await this.db.connect();
-
     await this.loadRecords();
-    /*
-    if (this.records.length === 0) {
-      await this.db.ensureDebugData();
-      await this.loadRecords();
-    }
-    */
   }
 
   async loadRecords() {

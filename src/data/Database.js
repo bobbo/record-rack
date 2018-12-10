@@ -11,41 +11,19 @@ class Database {
     return this.Record.sync();
   }
 
-  /*
-  async ensureDebugData() {
-    const debugRecords = [
-      {
-        id: 1,
-        title: 'Los Campesinos! - Hello Sadness',
-      },
-      {
-        id: 2,
-        title: 'The Antlers - Hospice',
-      },
-    ];
-
-    const creates = [];
-    for (const record of debugRecords) {
-      creates.push(this.saveRecord(record));
-    }
-
-    await Promise.all(creates);
-  }
-  */
-
   async saveRecord(record) {
     return this.Record.create(record);
   }
 
   async getAllRecords() {
-    return this.Record.findAll();
+    const records = await this.Record.findAll();
+    const sorted = records.map(Record.FromDbObj).sort(Record.Sort);
+    return sorted;
   }
 
   async getRecord(recordId) {
     const record = await this.Record.findByPk(recordId);
-    const trackList = record.trackList.split('\n');
-    return new Record(record.id, record.title, record.artist, record.year, record.albumCover,
-       trackList);
+    return Record.FromDbObj(record);
   }
 
 }

@@ -15,7 +15,7 @@ class RecordGallery extends Component {
     return (
       <div>
         {
-          this.props.store.records.map(record =>
+          records.map(record =>
             <Link key={record.id} to={`/details/${record.id}`}><RecordGalleryItem key={record.id} record={record} /></Link>)
         }
       </div>
