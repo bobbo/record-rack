@@ -26,7 +26,7 @@ class RecordDetails extends Component {
         <div className="detailsSub">Released {record.year}</div>
       </div>
       <div>
-        <ul>
+        <ul className="trackList">
           {
             record.trackList.map(track => <li key={track}>{track}</li>)
           }
