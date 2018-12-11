@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as Mobx from 'mobx-react';
-import LaddaButton, { XL, SLIDE_UP } from 'react-ladda';
+import LaddaButton, { XS, SLIDE_UP } from 'react-ladda';
 
 import RecordGalleryItem from './RecordGalleryItem';
 
@@ -12,7 +12,7 @@ export default class RecordSelectorItem extends React.Component {
 
     this.state = {
       working: false,
-      buttonText: 'Add to Library',
+      buttonText: '+ Add to Library',
       buttonEnabled: true,
     };
     this.onClick = this.onClick.bind(this);
@@ -30,16 +30,16 @@ export default class RecordSelectorItem extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="selectorItem">
         <RecordGalleryItem record={this.props.record} />
         <LaddaButton
           loading={this.state.working}
           onClick={this.onClick}
-          data-color="#0f0"
-          data-size={XL}
+          color="#00FF00"
+          data-size={XS}
           data-style={SLIDE_UP}
           data-spinner-size={30}
-          data-spinner-color="#ddd"
+          data-spinner-color="#000000"
           data-spinner-lines={12}
         >
           {this.state.buttonText}
